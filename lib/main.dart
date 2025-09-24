@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_its_2025/ui/screens/container_screen.dart';
+import 'package:flutter_its_2025/ui/screens/ex_container_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple)),
-      home: const ContainerScreen(),
+      home: const ExContainerScreen(),
     );
   }
 }
