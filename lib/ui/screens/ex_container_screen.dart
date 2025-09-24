@@ -55,7 +55,9 @@ class _ParentContainerState extends State<ParentContainer> {
       };
       debugPrint('Alignment: $_alignment');
       _colorIndex = _colorIndex == 0 ? 1 : 0;
-      _colors = _colorIndex == 0 ? [Colors.orange, Colors.deepPurpleAccent] : [Colors.cyan, Colors.redAccent];
+      _colors = _colorIndex == 0
+          ? [Colors.orange, Colors.deepPurpleAccent]
+          : [Colors.cyan, Colors.redAccent];
     });
   }
 

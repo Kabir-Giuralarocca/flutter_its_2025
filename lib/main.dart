@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_its_2025/ui/screens/ex_container_screen.dart';
+import 'package:flutter_its_2025/ui/screens/text_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,8 +13,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple)),
-      home: const ExContainerScreen(),
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.black,
+          foregroundColor: Colors.white,
+        ),
+      ),
+      home: const TextScreen(),
     );
   }
 }
