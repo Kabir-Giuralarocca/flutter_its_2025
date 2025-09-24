@@ -1,0 +1,64 @@
+# Start by including Flutter’s recommended rules (a good baseline)
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    # --- Performance Rules ---
+    avoid_unnecessary_containers: true # Avoid wrapping widgets with unnecessary Container
+    avoid_redundant_argument_values: true # Don’t pass default values explicitly (e.g., Text('', textAlign: TextAlign.start))
+    avoid_types_on_closure_parameters: true # Avoid specifying parameter types in closures if Dart can infer them
+    prefer_const_constructors: true # Use const for widgets whenever possible
+    prefer_const_constructors_in_immutables: true # Use const constructors in immutable classes
+    prefer_const_declarations: true # Mark variables const if possible
+    prefer_const_literals_to_create_immutables: true # Use const for list/map/set literals
+    use_key_in_widget_constructors: true # Always provide Key in widget constructors for better widget tree diffing
+
+    # --- Code Quality / Clean Code ---
+    always_declare_return_types: true # Explicitly declare method return types (avoid dynamic)
+    avoid_print: true # Don’t use print(), prefer logging packages
+    avoid_returning_null: true # Prevent returning null in non-nullable contexts
+    avoid_empty_else: true # Avoid empty else blocks
+    avoid_relative_lib_imports: true # Use package imports instead of relative imports inside lib/
+    prefer_final_fields: true # Make fields final if they’re never reassigned
+    prefer_final_in_for_each: true # Use final in for-each loops
+    prefer_final_locals: true # Make local variables final if they don’t change
+    unnecessary_await_in_return: true # Don’t await in return if unnecessary
+    unnecessary_lambdas: true # Avoid wrapping functions in lambdas when unnecessary
+    unnecessary_parenthesis: true # Remove redundant parentheses
+
+    # --- Safety Rules ---
+    cancel_subscriptions: true # Cancel Stream subscriptions to avoid memory leaks
+    close_sinks: true # Close StreamControllers or Sinks to avoid leaks
+    null_closures: true # Prevent passing null to functions expecting callbacks
+    avoid_init_to_null: true # Don’t explicitly initialize variables to null
+    avoid_null_checks_in_equality_operators: true # Avoid using null in == or != comparisons
+    hash_and_equals: true # Classes overriding == must also override hashCode
+    no_duplicate_case_values: true # Prevent duplicate case values in switch statements
+    prefer_is_not_operator: true # Use `is!` instead of `!(x is ...)`
+
+    # --- Style / Readability ---
+    always_put_control_body_on_new_line: true # Place if/else/loop bodies on new lines
+    always_put_required_named_parameters_first: true # Required named params should come before optional ones
+    sort_constructors_first: true # Put constructors before other class members
+    sort_unnamed_constructors_first: true # Place unnamed constructors before named ones
+    directives_ordering: true # Organize imports: dart > package > relative
+    require_trailing_commas: true # Force trailing commas (helps with cleaner git diffs & formatting)
+    lines_longer_than_80_chars: false # Disable strict 80-char line limit (set to true if you want stricter style)
+    prefer_single_quotes: true # Prefer single quotes over double quotes for strings
+    type_annotate_public_apis: true # Public APIs should have explicit type annotations
+    parameter_assignments: true # Avoid reassigning values to parameters inside functions
+    avoid_bool_literals_in_conditional_expressions: true # Don’t use `condition ? true : false`, just use condition
+    prefer_spread_collections: true # Use spread operator (...) instead of addAll()
+    prefer_collection_literals: true # Prefer [] / {} instead of List()/Map() constructors
+    prefer_if_null_operators: true # Prefer `??` instead of `x == null ? y : x`
+
+analyzer:
+  errors:
+    # Treat warnings as errors for stricter quality control
+    missing_required_param: error # Error if required parameter is missing
+    missing_return: error # Error if a function with non-void return doesn’t return a value
+    dead_code: warning # Warn if code is unreachable
+    unused_import: warning # Warn if imports aren’t used
+    unused_local_variable: warning # Warn if variables are unused
+    invalid_use_of_protected_member: error # Error if you use a protected member incorrectly
+    unnecessary_null_comparison: warning # Warn if you compare something to null unnecessarily
