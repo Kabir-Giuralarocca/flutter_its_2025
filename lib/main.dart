@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_its_2025/ui/screens/image_screen.dart';
+import 'package:flutter_its_2025/ui/screens/list_view_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
           foregroundColor: Colors.white,
         ),
       ),
-      home: const ImageScreen(),
+      home: const ListViewScreen(),
     );
   }
 }
