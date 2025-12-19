@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_its_2025/ui/screens/text_field_screen.dart';
+import 'package:flutter_its_2025/router/app_router.dart';
+import 'package:flutter_its_2025/ui/theme/theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,17 +11,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.black,
-          foregroundColor: Colors.white,
-        ),
-      ),
-      home: const TextFieldScreen(),
+      theme: AppTheme.light,
+      darkTheme: AppTheme.dark,
+      routerConfig: AppRouter.router,
+      // home: const ThemeScreen(),
     );
   }
 }

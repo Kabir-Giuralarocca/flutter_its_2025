@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widget_previews.dart';
+import 'package:flutter_its_2025/router/routes.dart';
+import 'package:go_router/go_router.dart';
 
 class ContainerScreen extends StatelessWidget {
+  @Preview(name: 'ContainerScreen', size: Size(460, 800))
   const ContainerScreen({super.key});
 
   @override
@@ -10,6 +14,7 @@ class ContainerScreen extends StatelessWidget {
         title: const Text(' Container Screen'),
         backgroundColor: Colors.black,
         foregroundColor: Colors.white,
+        leading: BackButton(color: Colors.white, onPressed: () => context.go(AppRoutes.home.path)),
       ),
       body: Column(
         children: [
@@ -27,43 +32,30 @@ class ContainerScreen extends StatelessWidget {
             height: 100,
             width: 100,
             alignment: Alignment.center,
-            child: const Text(
-              '100x100',
-            ),
+            child: const Text('100x100'),
           ),
           Container(
             height: 200,
             width: 200,
             alignment: Alignment.center,
             margin: const EdgeInsets.only(top: 24),
-            decoration:  BoxDecoration(
+            decoration: BoxDecoration(
               color: Colors.red,
               borderRadius: BorderRadius.circular(16),
               border: Border.all(color: Colors.blueGrey, width: 8),
               boxShadow: const [
-                BoxShadow(
-                  blurRadius: 8,
-                  offset: Offset(4, 4),
-                ),
-                BoxShadow(
-                  blurRadius: 16,
-                  color: Colors.cyan,
-                  offset: Offset(-4, 2),
-                ),
+                BoxShadow(blurRadius: 8, offset: Offset(4, 4)),
+                BoxShadow(blurRadius: 16, color: Colors.cyan, offset: Offset(-4, 2)),
               ],
             ),
-            child: const Text(
-              'Decorated Container',
-            ),
+            child: const Text('Decorated Container'),
           ),
           Container(
             color: Colors.deepPurple,
             padding: const EdgeInsets.all(16),
             margin: const EdgeInsets.only(top: 24),
             transform: Matrix4.rotationZ(0.3),
-            child: const Text(
-              'Container ruotato', style: TextStyle(color: Colors.white),
-            ),
+            child: const Text('Container ruotato', style: TextStyle(color: Colors.white)),
           ),
         ],
       ),
