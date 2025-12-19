@@ -11,7 +11,8 @@ class AlbumClient {
   }
 
   Dio get dio {
-    final dio = Dio(options)..interceptors.addAll([LogInterceptor()]);
+    final dio = Dio(options)
+      ..interceptors.addAll([LogInterceptor(requestBody: true, responseBody: true)]);
     return dio;
   }
 }

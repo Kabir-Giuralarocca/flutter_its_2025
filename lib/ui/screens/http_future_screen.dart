@@ -14,14 +14,16 @@ class HttpFutureScreen extends StatefulWidget {
 
 class _HttpFutureScreenState extends State<HttpFutureScreen> {
   final PostRepository _repository = PostRepository();
-  // ignore: unused_field
   final IBaseRepository<Album> _albumRepository = AlbumRepository();
   late Future<List<Post>> _posts;
+  // ignore: unused_field
+  late Future<List<Album>> _albums;
 
   @override
   void initState() {
     super.initState();
     _posts = _repository.getAll();
+    _albums = _albumRepository.getAll();
   }
 
   void _add() async {
@@ -31,6 +33,15 @@ class _HttpFutureScreenState extends State<HttpFutureScreen> {
       title: 'New Post Title',
       body: 'This is the body of the new post.',
     );
+
+    await _albumRepository
+        .add(Album(userId: 1, id: 0, title: 'New Album Title', description: 'This is a new album.'))
+        .then((value) {
+          debugPrint('Album added successfully');
+        })
+        .onError((error, stackTrace) {
+          debugPrint('Error adding album: $error');
+        });
 
     await _repository
         .create(post)
@@ -51,6 +62,24 @@ class _HttpFutureScreenState extends State<HttpFutureScreen> {
       title: 'Updated Post Title',
       body: 'This is the updated body of the post.',
     );
+
+    await _albumRepository
+        .edit(
+          1,
+          Album(
+            userId: 1,
+            id: 1,
+            title: 'Updated Album Title',
+            description: 'This is an updated album.',
+          ),
+        )
+        .then((value) {
+          debugPrint('Album updated successfully');
+        })
+        .onError((error, stackTrace) {
+          debugPrint('Error updating album: $error');
+        });
+
     await _repository
         .update(post)
         .then((value) {
@@ -64,6 +93,15 @@ class _HttpFutureScreenState extends State<HttpFutureScreen> {
   }
 
   void _delete() async {
+    await _albumRepository
+        .delete(1)
+        .then((value) {
+          debugPrint('Album deleted successfully');
+        })
+        .onError((error, stackTrace) {
+          debugPrint('Error deleting album: $error');
+        });
+
     await _repository
         .delete('1')
         .then((value) {
