@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_its_2025/config/environments.dart';
+import 'package:flutter_its_2025/config/environment.dart';
 import 'package:flutter_its_2025/data/interceptors/auth.interceptor.dart';
 
 class MovieClient {
   final BaseOptions options = BaseOptions(
-    baseUrl: '$baseUrl/api/movies',
+    baseUrl: '${Env.baseUrl}/api/movies',
     contentType: 'application/json; charset=UTF-8',
   );
 

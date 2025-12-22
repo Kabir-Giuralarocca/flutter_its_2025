@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_its_2025/config/environments.dart';
+import 'package:flutter_its_2025/config/environment.dart';
 
 class AuthClient {
   final BaseOptions options = BaseOptions(
-    baseUrl: '$baseUrl/api/auth',
+    baseUrl: '${Env.baseUrl}/api/auth',
     contentType: 'application/json; charset=UTF-8',
   );
 
