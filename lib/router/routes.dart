@@ -1,5 +1,6 @@
 enum AppRoutes {
   home('Home', '/'),
+  login('Login', '/login'),
   httpFuture('HTTP & Future', '/http-future'),
   container('Container', '/container'),
   icon('Icon', '/icon'),

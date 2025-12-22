@@ -9,6 +9,7 @@ import 'package:flutter_its_2025/ui/screens/icon_screen.dart';
 import 'package:flutter_its_2025/ui/screens/image_screen.dart';
 import 'package:flutter_its_2025/ui/screens/layout_screen.dart';
 import 'package:flutter_its_2025/ui/screens/list_view_screen.dart';
+import 'package:flutter_its_2025/ui/screens/login_screen.dart';
 import 'package:flutter_its_2025/ui/screens/row_column_screen.dart';
 import 'package:flutter_its_2025/ui/screens/text_screen.dart';
 import 'package:flutter_its_2025/ui/screens/theme_screen.dart';
@@ -25,6 +26,11 @@ class AppRouter {
         name: AppRoutes.home.name,
         path: AppRoutes.home.path,
         builder: (context, state) => const HomeScreen(),
+      ),
+      GoRoute(
+        name: AppRoutes.login.name,
+        path: AppRoutes.login.path,
+        builder: (context, state) => const LoginScreen(),
       ),
       GoRoute(
         name: AppRoutes.httpFuture.name,
